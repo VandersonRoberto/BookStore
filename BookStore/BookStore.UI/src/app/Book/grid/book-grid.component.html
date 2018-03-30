@@ -1,0 +1,24 @@
+<table class="table table-default table-striped table-condensed has-tickbox table-hover">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Editora</th>
+            <th>Autor</th>
+            <th>Quantidade em Estoque</th>
+            <th class="text-center">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of lstBooks">
+            <td>{{ item.title }}</td>
+            <td>{{ item.edition }}</td>
+            <td>{{ item.author }}</td>
+            <td>{{ item.stockQuantity }}</td>
+            
+            <td>
+                <a [routerLink]="['/CadastroLivro',item.id]"  class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i></a>
+                <button class="btn btn-xs btn-danger" (click)="delete(item.id);" ><i class="fa fa-trash-o"></i></button>
+            </td>
+        </tr>
+    </tbody>
+</table>

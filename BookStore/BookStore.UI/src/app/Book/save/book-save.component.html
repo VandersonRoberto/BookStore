@@ -1,0 +1,56 @@
+<div class="container">
+    <h2>Manutenção de Livros</h2>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="alert alert-success" *ngIf="successMessage">
+                    <strong>Sucesso!</strong>  {{successMessage}}
+                </div>
+                <div class="alert alert-danger" *ngIf="errorMessage">
+                    <strong>Falha!</strong> {{errorMessage}}
+                </div>
+                <form (submit)="save()">
+                    <input type="hidden" name="Id" [(ngModel)]="model.id">
+
+                    <div class="row">
+                        <section class="col-md-12">
+                            <div class="form-group">
+                                <label for="Title">Título</label>
+                                <input type="text" class="form-control" name="Title" [(ngModel)]="model.title" required />
+                            </div>
+                        </section>
+
+                        <section class="col-md-12">
+                            <div class="form-group">
+                                <label for="Title">Edição</label>
+                                <input type="text" class="form-control" name="Edition" [(ngModel)]="model.edition" />
+                            </div>
+                        </section>
+
+                        <section class="col-md-12">
+                            <div class="form-group">
+                                <label for="Title">Autor</label>
+                                <input type="text" class="form-control" name="Author" [(ngModel)]="model.author" required />
+                            </div>
+                        </section>
+
+                        <section class="col-md-12">
+                            <div class="form-group">
+                                <label for="Title">Quantidade em Estoque</label>
+                                <input type="number" class="form-control" name="StockQuantity" [(ngModel)]="model.stockQuantity" />
+                            </div>
+                        </section>
+
+                        <div class="row">
+                            <button class="btn btn-primary pull-right col-md-6" type="submit">Salvar</button>
+                            <a [routerLink]="['']" class="btn btn-default col-md-6">Voltar</a>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
